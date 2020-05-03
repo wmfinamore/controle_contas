@@ -16,5 +16,6 @@
                 | R${{ transacao.valor }} | {{ transacao.conta.nome }}</li> <br>
         {% endfor %}
         </ul>
+        <a href="{% url 'nova_transacao' %}">Nova Transação</a>
 </body>
 </html>
