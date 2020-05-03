@@ -9,5 +9,16 @@
 </head>
 <body>
     <h1>Seja bem vindo!</h1>
+
+    <p>Agora são: {{ now }}</p>
+    <ul>
+    {% for transacao in transacoes %}
+        {% if transacao == "T1" %}
+            <li><b>{{ transacao }}</b></li><br>
+        {% else %}
+            <li>{{ transacao }}</li><br>
+        {% endif %}
+    {% endfor %}
+    </ul>
 </body>
 </html>
