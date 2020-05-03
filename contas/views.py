@@ -29,3 +29,23 @@ def nova_transacao(request):
         return redirect('transacoes')
     data['form'] = form
     return render(request, 'contas/form.html', data)
+
+
+def atualizar_transacao(request, pk):
+    data={}
+    transacao = Transacao.objects.get(id=pk)
+    form = TransacaoForm(request.POST or None, instance=transacao)
+
+    if form.is_valid():
+        form.save()
+        return redirect('transacoes')
+    data['form'] = form
+    data['transacao'] = transacao
+    return render(request, 'contas/form.html', data)
+
+
+def excluir_transacao(request, pk):
+    data = {}
+    transacao = Transacao.objects.get(id=pk)
+    transacao.delete()
+    return redirect('transacoes')

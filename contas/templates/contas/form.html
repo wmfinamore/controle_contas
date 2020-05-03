@@ -11,7 +11,8 @@
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Salvar</button>
+            <button type="submit">Salvar</button><br>
+            <a href="{% url 'excluir_transacao' transacao.id %}">Excluir</a>
         </form>
 </body>
 </html>
